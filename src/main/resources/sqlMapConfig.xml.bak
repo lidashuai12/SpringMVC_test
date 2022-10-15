@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"></properties>
+    <typeAliases>
+        <package name="com.cqupt.domain"/>
+    </typeAliases>
+    <environments default="mysql">
+        <environment id="mysql">
+            <!--配置事务的类型，使用本地事务策略-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--是否使用连接池 POOLED表示使用链接池，UNPOOLED表示不使用连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/><!--用户-->
+                <property name="password" value="${jdbc.password}"/><!--密码-->
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <package name="com.cqupt.dao"></package>
+    </mappers>
+</configuration>
